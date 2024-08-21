@@ -7,7 +7,7 @@ from PySide6.QtCore import (QEasingCurve, QEvent, QPropertyAnimation, QObject, Q
                           Qt, QSize, QRectF, Signal, QPoint, QTimer, QObject, QParallelAnimationGroup)
 from PySide6.QtGui import (QAction, QIcon, QColor, QPainter, QPen, QPixmap, QRegion, QCursor, QTextCursor, QHoverEvent,
                            QFontMetrics, QKeySequence)
-from PySide6.QtWidgets import (QApplication, QMenu, QProxyStyle, QStyle,
+from PySide6.QtWidgets import (QApplication, QMenu, QProxyStyle, QStyle, QStyleFactory,
                                QGraphicsDropShadowEffect, QListWidget, QWidget, QHBoxLayout,
                                QListWidgetItem, QLineEdit, QTextEdit, QStyledItemDelegate, QStyleOptionViewItem, QLabel)
 
@@ -291,6 +291,9 @@ class RoundMenu(QMenu):
                             Qt.NoDropShadowWindowHint)
         self.setAttribute(Qt.WA_TranslucentBackground)
         self.setMouseTracking(True)
+
+        # fixes https://github.com/zhiyiYo/PyQt-Fluent-Widgets/issues/848
+        self.setStyle(QStyleFactory.create("fusion"))
 
         self.timer.setSingleShot(True)
         self.timer.setInterval(400)
