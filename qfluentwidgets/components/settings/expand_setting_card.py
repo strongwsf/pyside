@@ -250,7 +250,7 @@ class ExpandSettingCard(QScrollArea):
         self.card.addWidget(widget)
 
     def wheelEvent(self, e):
-        pass
+        e.ignore()
 
     def setExpand(self, isExpand: bool):
         """ set the expand status of card """
