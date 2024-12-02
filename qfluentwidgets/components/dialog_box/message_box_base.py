@@ -35,6 +35,8 @@ class MessageBoxBase(MaskDialogBase):
         self.yesButton.setAttribute(Qt.WidgetAttribute.WA_LayoutUsesWidgetRect)
         self.cancelButton.setAttribute(Qt.WidgetAttribute.WA_LayoutUsesWidgetRect)
 
+        self.yesButton.setAttribute(Qt.WidgetAttribute.WA_MacShowFocusRect, False)
+
         self.yesButton.setFocus()
         self.buttonGroup.setFixedHeight(81)
 
